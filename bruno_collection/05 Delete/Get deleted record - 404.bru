@@ -1,0 +1,15 @@
+meta {
+  name: Get deleted record - 404
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/record/{{recordId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+}

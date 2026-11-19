@@ -1,0 +1,21 @@
+meta {
+  name: Create user with empty name - 400
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/user
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": ""
+  }
+}
+
+assert {
+  res.status: eq 400
+}

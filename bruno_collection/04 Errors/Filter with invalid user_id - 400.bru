@@ -1,0 +1,19 @@
+meta {
+  name: Filter with invalid user_id - 400
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/record?user_id=abc
+  body: none
+  auth: none
+}
+
+params:query {
+  user_id: abc
+}
+
+assert {
+  res.status: eq 400
+}

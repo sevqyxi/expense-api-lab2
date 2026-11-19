@@ -1,0 +1,23 @@
+meta {
+  name: Create record with invalid amount - 400
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/record
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "user_id": {{userId}},
+    "category_id": {{categoryId}},
+    "amount": "abc"
+  }
+}
+
+assert {
+  res.status: eq 400
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Filter by user_id and category_id
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/record?user_id={{userId}}&category_id={{categoryId}}
+  body: none
+  auth: none
+}
+
+params:query {
+  user_id: {{userId}}
+  category_id: {{categoryId}}
+}
+
+assert {
+  res.status: eq 200
+}

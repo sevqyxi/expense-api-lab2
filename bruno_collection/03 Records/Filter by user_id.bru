@@ -1,0 +1,19 @@
+meta {
+  name: Filter by user_id
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/record?user_id={{userId}}
+  body: none
+  auth: none
+}
+
+params:query {
+  user_id: {{userId}}
+}
+
+assert {
+  res.status: eq 200
+}

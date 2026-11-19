@@ -1,0 +1,19 @@
+meta {
+  name: Create category without name - 400
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/category
+  body: json
+  auth: none
+}
+
+body:json {
+  {}
+}
+
+assert {
+  res.status: eq 400
+}

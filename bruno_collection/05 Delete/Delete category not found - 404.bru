@@ -1,0 +1,15 @@
+meta {
+  name: Delete category not found - 404
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/category/{{categoryId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+}

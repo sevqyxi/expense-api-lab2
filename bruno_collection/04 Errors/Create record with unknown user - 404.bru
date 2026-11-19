@@ -1,0 +1,23 @@
+meta {
+  name: Create record with unknown user - 404
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/record
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "user_id": 9999,
+    "category_id": {{categoryId}},
+    "amount": 100
+  }
+}
+
+assert {
+  res.status: eq 404
+}

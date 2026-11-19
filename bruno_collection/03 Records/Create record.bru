@@ -1,0 +1,27 @@
+meta {
+  name: Create record
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/record
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "user_id": {{userId}},
+    "category_id": {{categoryId}},
+    "amount": 250.50
+  }
+}
+
+vars:post-response {
+  recordId: res.body.id
+}
+
+assert {
+  res.status: eq 201
+}
